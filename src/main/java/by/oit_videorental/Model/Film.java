@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.util.Set;
 
 @Entity
@@ -23,10 +24,10 @@ public class Film {
     @Getter
     private String filmTitle;
 
-    @Column(name = "amount")
+    @Column(name = "price")
     @Setter
     @Getter
-    private int amountOfFilms;
+    private BigDecimal filmPrice;
 
     @ManyToOne
     @JoinColumn(name = "publishing_company_id", referencedColumnName = "id")
@@ -44,13 +45,9 @@ public class Film {
     @Getter
     private Set<Category> filmCategories;
 
-    @ManyToMany(mappedBy = "rentedFilms")
+    @OneToMany(mappedBy = "filmData")
     @Getter
-    private Set<Rent> rentSet;
-
-    @ManyToMany(mappedBy = "filmsInOffice")
-    @Getter
-    private Set<Office> officeSet;
+    private Set<FilmCopy> filmCopies;
 
 
 }

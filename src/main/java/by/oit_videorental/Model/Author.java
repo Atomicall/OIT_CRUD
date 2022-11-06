@@ -31,4 +31,9 @@ public class Author {
     @OneToMany
     @Getter
     private Set<Film> filmSet;
+
+    @OneToMany(mappedBy = "author")
+    @Getter
+    private Set<Film> films;
+
 }

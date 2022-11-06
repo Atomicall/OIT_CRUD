@@ -18,26 +18,21 @@ public class Office {
     @Getter
     private long id;
 
-    @Column(name = "adress_city")
+    @Column(name = "address_city")
     @Setter
     @Getter
     private String addressCity;
 
-    @Column(name = "adress")
+    @Column(name = "address")
     @Setter
     @Getter
     private int address;
 
-    @Column(name = "office_capacity")
-    @Setter
-    @Getter
-    private int officeCapacity;
-
-    @ManyToMany
-    @JoinTable(name = "offices_films", joinColumns = {@JoinColumn(name = "office_id")},
+    @OneToMany
+    @JoinTable(name = "film_copies", joinColumns = {@JoinColumn(name = "office_id")},
             inverseJoinColumns = {@JoinColumn(name = "film_id")})
     @Getter
-    private Set<Film> filmsInOffice;
+    private Set<FilmCopy> filmsInOffice;
 
     @OneToMany
     @Getter

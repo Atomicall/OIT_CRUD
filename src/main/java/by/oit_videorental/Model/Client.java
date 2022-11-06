@@ -34,7 +34,8 @@ public class Client {
     @Getter
     private String passportNumber;
 
-    @OneToMany
+    @OneToMany(mappedBy = "client")
     @Getter
     private Set<Rent> rentSet;
+
 }

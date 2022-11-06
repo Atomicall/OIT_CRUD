@@ -19,13 +19,13 @@ public class Category {
     @Getter
     private long id;
 
-    @Column(name = "category_title")
+    @Column(name = "title")
     @Setter
     @Getter
     private String categoryTitle;
 
     @ManyToOne
-    @JoinColumn(name = "age_constraints", referencedColumnName = "id")
+    @JoinColumn(name = "age_constraints_id", referencedColumnName = "id")
     @Getter
     private AgeConstraint ageConstraint;
 

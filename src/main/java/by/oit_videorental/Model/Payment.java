@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Date;
 
 @Entity
@@ -13,26 +14,28 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Payment {
-    @Column(name = "payment_amount_byn")
-    @Setter
-    @Getter
-    double paymentAmount;
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Getter
     private long id;
-    @Column(name = "payment_number", unique = true, nullable = false)
+
+    @Column(name = "amount_byn")
+    @Setter
+    @Getter
+    private BigDecimal paymentAmount;
+
+    @Column(name = "number", unique = true, nullable = false)
     @Setter
     @Getter
     private String paymentNumber;
 
-    @Column(name = "payment_date")
+    @Column(name = "date")
     @Setter
     @Getter
     private Date paymentDate;
 
-    @OneToOne
+    @OneToOne(mappedBy = "payment")
     @Getter
     private Rent rent; // ссылающаяся аренда
-
 }

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.math.BigDecimal;
 import java.sql.Date;
 import java.util.Set;
 
@@ -31,10 +32,15 @@ public class Rent {
     private int rentDuration;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "rent_status")
+    @Column(name = "status")
     @Setter
     @Getter
     private RentStatus rentStatus;
+
+    @Column(name = "rental_day_price")
+    @Setter
+    @Getter
+    private BigDecimal rentalDayPrice;
 
 
     @OneToOne(cascade = CascadeType.ALL)
@@ -54,7 +60,11 @@ public class Rent {
 
     @ManyToMany
     @JoinTable(name = "rents_films", joinColumns = {@JoinColumn(name = "rent_id")},
-            inverseJoinColumns = {@JoinColumn(name = "film_id")})
+            inverseJoinColumns = {@JoinColumn(name = "film_copy_id")})
     @Getter
     private Set<Film> rentedFilms;
+
+    @ManyToMany(mappedBy = "rents")
+    @Getter
+    private Set<FilmCopy> filmCopies;
 }

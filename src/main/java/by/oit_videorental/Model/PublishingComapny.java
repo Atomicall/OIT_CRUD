@@ -27,4 +27,8 @@ public class PublishingComapny {
     @Getter
     private Set<Film> filmSet;
 
+    @OneToMany(mappedBy = "publishingComapny")
+    @Getter
+    private Set<Film> films;
+
 }

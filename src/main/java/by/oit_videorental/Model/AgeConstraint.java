@@ -26,9 +26,14 @@ public class AgeConstraint {
     @Column(name = "age")
     @Setter
     @Getter
-    private int maxAllowedAge;
+    private int allowedAge;
 
     @OneToMany
     @Getter
     private Set<Category> categorySet;
+
+    @OneToMany(mappedBy = "ageConstraint")
+    @Getter
+    private Set<Category> categories;
+
 }
