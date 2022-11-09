@@ -1,0 +1,173 @@
+{
+	"info": {
+		"_postman_id": "5cc7a26d-aa84-4778-abfa-93a0c409358b",
+		"name": "Agg_constr",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "15567097"
+	},
+	"item": [
+		{
+			"name": "Get all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/age_constraints/get",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"age_constraints",
+						"get"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get one",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/age_constraints/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"age_constraints",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete all",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/age_constraints/remove/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"age_constraints",
+						"remove",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete one",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/age_constraints/remove/all",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"age_constraints",
+						"remove",
+						"all"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add batch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\"constraintTitle\" : \"G\",\r\n  \"allowedAge\" : 0},\r\n    {\"constraintTitle\" : \"PG\",\r\n  \"allowedAge\" : 0},\r\n {\"constraintTitle\" : \"PG-13\",\r\n  \"allowedAge\" : 13 },\r\n  {\"constraintTitle\" : \"R\",\r\n  \"allowedAge\" : 17 },\r\n  {\"constraintTitle\" : \"NC-17\",\r\n  \"allowedAge\" : 18 }\r\n  ]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/age_constraints/add/batch",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"age_constraints",
+						"add",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Patch",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n    {\"constraintTitle\" : \"G\",\r\n  \"allowedAge\" : 0},\r\n    {\"constraintTitle\" : \"PG\",\r\n  \"allowedAge\" : 0},\r\n {\"constraintTitle\" : \"PG-13\",\r\n  \"allowedAge\" : 13 },\r\n  {\"constraintTitle\" : \"R\",\r\n  \"allowedAge\" : 17 },\r\n  {\"constraintTitle\" : \"NC-17\",\r\n  \"allowedAge\" : 18 }\r\n  ]\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/age_constraints/add/batch",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"age_constraints",
+						"add",
+						"batch"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					"pm.test(\"Status code is 200\", function () {",
+					"    pm.response.to.have.status(200);",
+					"});",
+					""
+				]
+			}
+		}
+	]
+}
