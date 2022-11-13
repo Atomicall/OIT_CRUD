@@ -12,7 +12,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class AgeConstraint {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     @Setter
     private long id;
@@ -27,5 +27,12 @@ public class AgeConstraint {
     @Getter
     private int allowedAge;
 
-
+    @Override
+    public String toString() {
+        return "AgeConstraint{" +
+                "id=" + id +
+                ", constraintTitle='" + constraintTitle + '\'' +
+                ", allowedAge=" + allowedAge +
+                "}\n";
+    }
 }

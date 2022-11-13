@@ -29,10 +29,17 @@ public class Category {
     @Getter
     private AgeConstraint ageConstraint;
 
-    @ManyToMany(mappedBy = "filmCategories")
-    @Getter
-    private Set<Film> filmSet;
+//    @ManyToMany(mappedBy = "filmCategories")
+//    @Getter
+//    private Set<Film> filmSet;
 
-
-    // age_constr id
+    @Override
+    public String toString() {
+        return "Category{" +
+                "id=" + id +
+                ", categoryTitle='" + categoryTitle + '\'' +
+                ", ageConstraint=" + ageConstraint +
+//                ", filmSet=" + filmSet +
+                "}\n";
+    }
 }

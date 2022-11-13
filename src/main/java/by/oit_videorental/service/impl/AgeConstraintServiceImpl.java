@@ -18,21 +18,24 @@ public class AgeConstraintServiceImpl implements AgeConstraintService {
 
     @Override
     public void addConstraint(AgeConstraint constraint) {
-        AgeConstraint savedConstraint = repository.save(constraint);
+        repository.save(constraint);
     }
 
     @Override
     public void deleteConstraint(long id) {
+
         repository.deleteById(id);
     }
 
     @Override
     public List<AgeConstraint> getByAge(int age) {
+
         return repository.findByAllowedAge(age);
     }
 
     @Override
     public List<AgeConstraint> getByTitle(String title) {
+
         return repository.findByConstraintTitle(title);
     }
 
