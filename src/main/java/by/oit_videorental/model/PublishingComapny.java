@@ -14,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class PublishingComapny {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     private long id;
 

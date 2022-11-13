@@ -17,7 +17,7 @@ import java.util.Set;
 @NoArgsConstructor
 public class Rent {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     private long id;
 

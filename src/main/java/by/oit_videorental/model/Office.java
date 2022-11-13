@@ -14,7 +14,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class Office {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
     private long id;
 

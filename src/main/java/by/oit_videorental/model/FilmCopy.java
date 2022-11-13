@@ -15,7 +15,7 @@ import java.util.Set;
 @AllArgsConstructor
 public class FilmCopy {
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "serial_number")
     @Getter
     private long id;

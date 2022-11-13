@@ -30,13 +30,13 @@ public class AgeConstraintServiceImpl implements AgeConstraintService {
     @Override
     public List<AgeConstraint> getByAge(int age) {
 
-        return repository.findByAllowedAge(age);
+        return repository.findAgeConstraintsByAllowedAge(age);
     }
 
     @Override
-    public List<AgeConstraint> getByTitle(String title) {
+    public AgeConstraint getByTitle(String title) {
 
-        return repository.findByConstraintTitle(title);
+        return repository.findAgeConstraintsByConstraintTitle(title);
     }
 
     @Override

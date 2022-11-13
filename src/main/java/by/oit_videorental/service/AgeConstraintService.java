@@ -11,7 +11,7 @@ public interface AgeConstraintService {
 
     List<AgeConstraint> getByAge(int age);
 
-    List<AgeConstraint> getByTitle(String title);
+    AgeConstraint getByTitle(String title);
 
     void updateConstraint(AgeConstraint constraint);
 

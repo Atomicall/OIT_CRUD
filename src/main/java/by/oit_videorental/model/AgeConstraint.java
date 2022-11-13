@@ -1,8 +1,12 @@
 package by.oit_videorental.model;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 import lombok.*;
 
 import javax.persistence.*;
+import java.util.LinkedHashSet;
 import java.util.Set;
 
 @Entity
@@ -14,6 +18,7 @@ public class AgeConstraint {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
+    // ?
     @Setter
     private long id;
 
@@ -26,6 +31,15 @@ public class AgeConstraint {
     @Setter
     @Getter
     private int allowedAge;
+
+   @JsonManagedReference
+//    @JsonIdentityInfo(
+//            generator = ObjectIdGenerators.PropertyGenerator.class,
+//            property = "id")
+    @OneToMany(mappedBy = "ageConstraint", fetch = FetchType.EAGER)
+    @Getter
+    private Set<Category> categories = new LinkedHashSet<>();
+
 
     @Override
     public String toString() {
