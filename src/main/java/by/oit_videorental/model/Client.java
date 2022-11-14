@@ -17,6 +17,7 @@ public class Client {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
+    @Setter
     private long id;
 
     @Column(name = "first_name")
@@ -34,7 +35,7 @@ public class Client {
     @Getter
     private String passportNumber;
 
-    @OneToMany(mappedBy = "client")
+    @OneToMany(mappedBy = "client", fetch = FetchType.EAGER)
     @Getter
     private Set<Rent> rentSet;
 

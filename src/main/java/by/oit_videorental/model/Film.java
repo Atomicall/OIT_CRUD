@@ -17,6 +17,7 @@ public class Film {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
+    @Setter
     private long id;
 
     @Column(name = "title")
@@ -32,7 +33,7 @@ public class Film {
     @ManyToOne
     @JoinColumn(name = "publishing_company_id", referencedColumnName = "id")
     @Getter
-    private PublishingComapny publishingComapny;
+    private PublishingCompany publishingCompany;
 
     @ManyToOne
     @JoinColumn(name = "author_id", referencedColumnName = "id")
@@ -45,7 +46,7 @@ public class Film {
     @Getter
     private Set<Category> filmCategories;
 
-    @OneToMany(mappedBy = "filmData")
+    @OneToMany(mappedBy = "filmData", fetch = FetchType.EAGER)
     @Getter
     private Set<FilmCopy> filmCopies;
 

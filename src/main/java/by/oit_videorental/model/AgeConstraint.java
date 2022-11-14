@@ -11,7 +11,9 @@ import java.util.Set;
 
 @Entity
 @Builder(toBuilder = true)
-@Table(name = "age_constraints")
+@Table(name = "age_constraints",
+        uniqueConstraints=
+@UniqueConstraint(columnNames={"constraint_title"}))
 @NoArgsConstructor
 @AllArgsConstructor
 public class AgeConstraint {

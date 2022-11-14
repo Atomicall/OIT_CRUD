@@ -18,6 +18,7 @@ public class Payment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Getter
+    @Setter
     private long id;
 
     @Column(name = "amount_byn")
@@ -35,7 +36,7 @@ public class Payment {
     @Getter
     private Date paymentDate;
 
-    @OneToOne(mappedBy = "payment")
+    @OneToOne(mappedBy = "payment", fetch = FetchType.EAGER)
     @Getter
     private Rent rent; // ссылающаяся аренда
 }

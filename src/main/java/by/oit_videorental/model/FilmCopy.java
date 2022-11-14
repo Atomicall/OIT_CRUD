@@ -18,6 +18,7 @@ public class FilmCopy {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "serial_number")
     @Getter
+    @Setter
     private long id;
 
     @Enumerated(EnumType.STRING)

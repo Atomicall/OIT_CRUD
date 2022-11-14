@@ -38,6 +38,8 @@ public class AuthorController {
         logger.info("GET " + "film_authors/{}", id);
         return crudUtil.getEntityById(id);
     }
+
+    // todo добавить возможность запросить сет фильмов от автора
     
      @PostMapping("/add")
     public ResponseEntity<Author> addAuthor(@RequestBody Author author) {
@@ -52,7 +54,7 @@ public class AuthorController {
     }
 
     @PutMapping("/edit/{id}")
-    public ResponseEntity<Author> replaceCategory(@RequestBody Author author, @PathVariable("id") Long id) {
+    public ResponseEntity<Author> replaceAuthor(@RequestBody Author author, @PathVariable("id") Long id) {
         logger.info("PUT " + "categories/{}" + " Body:\n {}", id, author);
         return new ResponseEntity<>(repository.findById(id).map(foundAuthor -> {
             foundAuthor.setFirstName(author.getFirstName());
@@ -65,7 +67,7 @@ public class AuthorController {
     }
 
     
-     @DeleteMapping("/remove/{id}")
+    @DeleteMapping("/remove/{id}")
     public ResponseEntity<?> deleteById(@PathVariable("id") Long id) {
         logger.info("DELETE " + "film_authors/remove/{}", id);
         return crudUtil.deleteEntityById(id);
@@ -76,8 +78,5 @@ public class AuthorController {
         logger.info("DELETE " + "film_authors/remove/all");
         return crudUtil.deleteAllEntities();
     }
-
-
-
 
 }

@@ -16,9 +16,9 @@ import java.util.List;
 @RestController
 @RequestMapping("/age_constraints")
 public class AgeConstraintController {
+    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     @Autowired
     private AgeConstraintRepository repository;
-    private final Logger logger = LoggerFactory.getLogger(this.getClass());
     private GenericCrudUtil<AgeConstraint, AgeConstraintRepository> crudUtil;
 
     @PostConstruct
@@ -52,12 +52,13 @@ public class AgeConstraintController {
     }
 
     // Todo переделать на crudUtil
+    // todo подумать над NOtNull в полях
     @PutMapping("/edit/{id}")
     public ResponseEntity<AgeConstraint> replaceAgeConstraint(@RequestBody AgeConstraint ageConstraint, @PathVariable("id") Long id) {
         logger.info("PUT " + "age_constraints/{}" + " Body:\n {}", id, ageConstraint);
         return new ResponseEntity<>(repository.findById(id).map(foundAgeConstraint -> {
-            foundAgeConstraint.setAllowedAge(ageConstraint.getAllowedAge());
             foundAgeConstraint.setConstraintTitle(ageConstraint.getConstraintTitle());
+            foundAgeConstraint.setAllowedAge(ageConstraint.getAllowedAge());
             return repository.save(foundAgeConstraint);
         }).orElseGet(() -> {
             ageConstraint.setId(id);

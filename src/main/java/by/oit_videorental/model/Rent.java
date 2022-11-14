@@ -64,7 +64,7 @@ public class Rent {
     @Getter
     private Set<Film> rentedFilms;
 
-    @ManyToMany(mappedBy = "rents")
+    @ManyToMany(mappedBy = "rents", fetch = FetchType.EAGER)
     @Getter
     private Set<FilmCopy> filmCopies;
 }
