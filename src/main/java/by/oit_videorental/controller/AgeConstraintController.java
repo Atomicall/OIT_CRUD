@@ -14,6 +14,7 @@ import javax.annotation.PostConstruct;
 import java.util.List;
 
 @RestController
+@CrossOrigin(origins = "http://localhost:4200")
 @RequestMapping("/age_constraints")
 public class AgeConstraintController {
     private final Logger logger = LoggerFactory.getLogger(this.getClass());
